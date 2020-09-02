@@ -19,6 +19,17 @@ struct CreateView: View {
         }
     }
     
+    var actionSheet: ActionSheet {
+        ActionSheet(title: Text("Select noh"),
+                    buttons: viewModel.displayedOption.indices.map { index in
+                        let option = viewModel.displayedOption[index]
+                        return ActionSheet.Button.default(Text(option.formatedValue)) {
+                            //selected option button index
+                            self.viewModel.send(action: .selectedOption(index: index))
+                        }
+        } )
+    }
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -33,7 +44,14 @@ struct CreateView: View {
                     }
                 }
                 .padding(.bottom, 30)
-            }
+                }
+            .actionSheet(isPresented: Binding<Bool>(get: {
+                self.viewModel.hasSelectedDropdown
+            }, set: { _ in
+                
+            }), content: { () -> ActionSheet in
+                self.actionSheet
+            })
             .navigationBarTitle("Create")
             .navigationBarBackButtonHidden(true)
         }
@@ -44,9 +62,15 @@ struct CreateView: View {
 struct CreateView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CreateView()
-                .previewDevice("iPhone 11 Pro Max")
-                .previewDisplayName("iPhone 11 Pro Max")
+            NavigationView {
+                CreateView()
+            }
+            
+            NavigationView {
+                CreateView()
+                .previewDisplayName("iPhone 8+")
+            }
+            .environment(\.colorScheme, .dark)
         }
         
     }

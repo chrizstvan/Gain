@@ -16,6 +16,45 @@ final class CreateChallangeViewModel: ObservableObject {
         .init(type: .increase),
         .init(type: .length)
     ]
+    
+    enum Action {
+        case selectedOption(index: Int)
+    }
+    
+    var hasSelectedDropdown: Bool {
+        selectedDropdownIndex != nil
+    }
+    
+    var selectedDropdownIndex: Int? {
+        dropdowns.enumerated().first(where: {$0.element.isSelected})?.offset
+    }
+    
+    var displayedOption: [DropdownOption] {
+        guard let selectedDropdownIndex = selectedDropdownIndex else { return [] }
+        return dropdowns[selectedDropdownIndex].option
+    }
+    
+    func send(action: Action) {
+        switch action {
+        case .selectedOption(let index):
+            guard let selectedDropdownIndex = selectedDropdownIndex else { return }
+            clearSelectedOption()
+            dropdowns[selectedDropdownIndex].option[index].isSelected = true
+            clearSelectedDropdown()
+        }
+    }
+    
+    func clearSelectedOption() {
+        guard let selectedDropdownIndex = selectedDropdownIndex else { return }
+        dropdowns[selectedDropdownIndex].option.indices.forEach{ index in
+            dropdowns[selectedDropdownIndex].option[index].isSelected = false
+        }
+    }
+    
+    func clearSelectedDropdown() {
+        guard let selectedDropdownIndex = selectedDropdownIndex else { return }
+        dropdowns[selectedDropdownIndex].isSelected = false
+    }
 }
 
 extension CreateChallangeViewModel {
