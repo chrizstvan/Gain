@@ -11,7 +11,6 @@ import SwiftUI
 struct CreateView: View {
     
     @ObservedObject var viewModel = CreateChallangeViewModel()
-    @State private var isActive = false
     
     var dropdownList: some View {
         ForEach(viewModel.dropdowns.indices, id: \.self) { index in
@@ -33,18 +32,16 @@ struct CreateView: View {
     var body: some View {
         ScrollView {
             VStack {
-               dropdownList
+                dropdownList
                 Spacer()
                 
-                NavigationLink(destination: RemindView(), isActive: $isActive) {
-                    Button(action: {
-                        self.isActive = true
-                    }) {
-                        Text("Next").font(.system(size: 24, weight: .medium))
-                    }
+                Button(action: {
+                    self.viewModel.send(action: .createChallenge)
+                }) {
+                    Text("Create").font(.system(size: 24, weight: .medium))
                 }
-                .padding(.bottom, 30)
-                }
+            }
+            .padding(.bottom, 30)
             .actionSheet(isPresented: Binding<Bool>(get: {
                 self.viewModel.hasSelectedDropdown
             }, set: { _ in
@@ -52,8 +49,8 @@ struct CreateView: View {
             }), content: { () -> ActionSheet in
                 self.actionSheet
             })
-            .navigationBarTitle("Create")
-            .navigationBarBackButtonHidden(true)
+                .navigationBarTitle("Create")
+                .navigationBarBackButtonHidden(true)
         }
     }
     

@@ -7,6 +7,9 @@
 //
 
 import SwiftUI
+import Combine
+
+typealias UserId = String
 
 final class CreateChallangeViewModel: ObservableObject {
     
@@ -17,8 +20,11 @@ final class CreateChallangeViewModel: ObservableObject {
         .init(type: .length)
     ]
     
+    private let userService: UserServiceProtocol
+    
     enum Action {
         case selectedOption(index: Int)
+        case createChallenge
     }
     
     var hasSelectedDropdown: Bool {
@@ -34,6 +40,10 @@ final class CreateChallangeViewModel: ObservableObject {
         return dropdowns[selectedDropdownIndex].option
     }
     
+    init(userService: UserServiceProtocol = UserService()) {
+        self.userService = userService
+    }
+    
     func send(action: Action) {
         switch action {
         case .selectedOption(let index):
@@ -41,6 +51,8 @@ final class CreateChallangeViewModel: ObservableObject {
             clearSelectedOption()
             dropdowns[selectedDropdownIndex].option[index].isSelected = true
             clearSelectedDropdown()
+        case .createChallenge:
+            print("create challenge")
         }
     }
     
@@ -54,6 +66,22 @@ final class CreateChallangeViewModel: ObservableObject {
     func clearSelectedDropdown() {
         guard let selectedDropdownIndex = selectedDropdownIndex else { return }
         dropdowns[selectedDropdownIndex].isSelected = false
+    }
+    
+    // Fetch Service
+    private func currentUserId() -> AnyPublisher<UserId, Error> {
+        return userService.currentUser().flatMap { user -> AnyPublisher<UserId, Error> in
+            if let usedId = user?.uid {
+                return Just(usedId)
+                    .setFailureType(to: Error.self)
+                    .eraseToAnyPublisher()
+            } else {
+                return self.userService
+                    .signInAnonymously()
+                    .map{ $0.uid }
+                    .eraseToAnyPublisher()
+            }
+        }.eraseToAnyPublisher()
     }
 }
 
