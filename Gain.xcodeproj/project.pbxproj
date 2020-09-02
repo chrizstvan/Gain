@@ -17,6 +17,10 @@
 		8B88165A24FF3928000E8C03 /* GainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88165924FF3928000E8C03 /* GainUITests.swift */; };
 		8B88166C24FF41E8000E8C03 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88166B24FF41E8000E8C03 /* PrimaryButtonStyle.swift */; };
 		8B88166E24FF43F7000E8C03 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88166D24FF43F7000E8C03 /* Color+Extension.swift */; };
+		8B88167024FF529E000E8C03 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88166F24FF529E000E8C03 /* CreateView.swift */; };
+		8B88167224FF550D000E8C03 /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88167124FF550D000E8C03 /* DropdownView.swift */; };
+		8B88167424FF5EC1000E8C03 /* RemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88167324FF5EC1000E8C03 /* RemindView.swift */; };
+		8B88167724FF71AF000E8C03 /* CreateChallangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88167624FF71AF000E8C03 /* CreateChallangeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		8B88165B24FF3928000E8C03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B88166B24FF41E8000E8C03 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		8B88166D24FF43F7000E8C03 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		8B88166F24FF529E000E8C03 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
+		8B88167124FF550D000E8C03 /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
+		8B88167324FF5EC1000E8C03 /* RemindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindView.swift; sourceTree = "<group>"; };
+		8B88167624FF71AF000E8C03 /* CreateChallangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallangeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,7 @@
 		8B88163624FF3925000E8C03 /* Gain */ = {
 			isa = PBXGroup;
 			children = (
+				8B88167524FF718D000E8C03 /* ViewModels */,
 				8B88166A24FF41CB000E8C03 /* Shared */,
 				8B88166924FF41B4000E8C03 /* Views */,
 				8B88163724FF3925000E8C03 /* AppDelegate.swift */,
@@ -145,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				8B88163B24FF3925000E8C03 /* LandingView.swift */,
+				8B88166F24FF529E000E8C03 /* CreateView.swift */,
+				8B88167324FF5EC1000E8C03 /* RemindView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -154,8 +165,17 @@
 			children = (
 				8B88166B24FF41E8000E8C03 /* PrimaryButtonStyle.swift */,
 				8B88166D24FF43F7000E8C03 /* Color+Extension.swift */,
+				8B88167124FF550D000E8C03 /* DropdownView.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		8B88167524FF718D000E8C03 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8B88167624FF71AF000E8C03 /* CreateChallangeViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,10 +309,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B88167724FF71AF000E8C03 /* CreateChallangeViewModel.swift in Sources */,
 				8B88166C24FF41E8000E8C03 /* PrimaryButtonStyle.swift in Sources */,
 				8B88166E24FF43F7000E8C03 /* Color+Extension.swift in Sources */,
 				8B88163824FF3925000E8C03 /* AppDelegate.swift in Sources */,
 				8B88163A24FF3925000E8C03 /* SceneDelegate.swift in Sources */,
+				8B88167024FF529E000E8C03 /* CreateView.swift in Sources */,
+				8B88167424FF5EC1000E8C03 /* RemindView.swift in Sources */,
+				8B88167224FF550D000E8C03 /* DropdownView.swift in Sources */,
 				8B88163C24FF3925000E8C03 /* LandingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

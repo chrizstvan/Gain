@@ -9,49 +9,59 @@
 import SwiftUI
 
 struct LandingView: View {
+    
+    @State private var isActive = false
+    
     var body: some View {
-        GeometryReader { proxy in
-            VStack {
-                Spacer()
-                    .frame(height: proxy.size.height * 0.18)
-                
-                Text("No Pain, No Gain")
-                    .font(.system(size: 44, weight: .medium))
-                    .foregroundColor(.white)
-                
-                Spacer()
-                
-                Button(action: {}) {
-                    HStack(spacing: 15) {
-                        Spacer()
-                        Image(systemName: "plus.circle")
-                            .font(.system(size: 24, weight: .semibold))
-                            .foregroundColor(.white)
-                        Text("Create a Challenge")
-                            .font(.system(size: 24, weight: .semibold))
-                            .foregroundColor(.white)
-                        Spacer()
-                    }
-                }
-                .padding(.horizontal, 25)
-                .buttonStyle(PrimaryButtonStyle())
-                
-                Spacer().frame(height: proxy.size.height * 0.05)
-                
-            }.frame(
-                maxWidth: .infinity,
-                maxHeight: .infinity
-            )
-            .background(
-                Image("pullup")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .overlay(Color.black.opacity(0.4))
-                    .frame(width: proxy.size.width)
+        NavigationView {
+            GeometryReader { proxy in
+                VStack {
+                    Spacer()
+                        .frame(height: proxy.size.height * 0.18)
                     
-            )
-            .edgesIgnoringSafeArea(.all)
-        }
+                    Text("No Pain, No Gain")
+                        .font(.system(size: 44, weight: .medium))
+                        .foregroundColor(.white)
+                    
+                    Spacer()
+                    
+                    //Navigation Action here
+                    NavigationLink(destination: CreateView(), isActive: self.$isActive) {
+                        Button(action: {
+                            self.isActive = true
+                        }) {
+                            HStack(spacing: 15) {
+                                Spacer()
+                                Image(systemName: "plus.circle")
+                                    .font(.system(size: 24, weight: .semibold))
+                                    .foregroundColor(.white)
+                                Text("Create a Challenge")
+                                    .font(.system(size: 24, weight: .semibold))
+                                    .foregroundColor(.white)
+                                Spacer()
+                            }
+                        }
+                        .padding(.horizontal, 25)
+                        .buttonStyle(PrimaryButtonStyle())
+                    }
+                    
+                    Spacer().frame(height: proxy.size.height * 0.05)
+                    
+                }.frame(
+                    maxWidth: .infinity,
+                    maxHeight: .infinity
+                )
+                .background(
+                    Image("pullup")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .overlay(Color.black.opacity(0.4))
+                        .frame(width: proxy.size.width)
+                        
+                )
+                .edgesIgnoringSafeArea(.all)
+            }
+        }.accentColor(.primary)
     }
 }
 
