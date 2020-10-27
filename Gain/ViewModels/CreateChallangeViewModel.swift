@@ -13,32 +13,17 @@ typealias UserId = String
 
 final class CreateChallangeViewModel: ObservableObject {
     
-    @Published var dropdowns: [ChallangePartViewModel] = [
-        .init(type: .exercise),
-        .init(type: .startAmount),
-        .init(type: .increase),
-        .init(type: .length)
-    ]
+    
+    @Published var exerciseDropdowns = ChallangePartViewModel(type: .exercise)
+    @Published var startAmountDropdowns = ChallangePartViewModel(type: .startAmount)
+    @Published var increaseDropdowns = ChallangePartViewModel(type: .increase)
+    @Published var lengthDropdowns = ChallangePartViewModel(type: .length)
     
     private let userService: UserServiceProtocol
     private var cancellables: [AnyCancellable] = []
     
     enum Action {
-        case selectedOption(index: Int)
         case createChallenge
-    }
-    
-    var hasSelectedDropdown: Bool {
-        selectedDropdownIndex != nil
-    }
-    
-    var selectedDropdownIndex: Int? {
-        dropdowns.enumerated().first(where: {$0.element.isSelected})?.offset
-    }
-    
-    var displayedOption: [DropdownOption] {
-        guard let selectedDropdownIndex = selectedDropdownIndex else { return [] }
-        return dropdowns[selectedDropdownIndex].option
     }
     
     init(userService: UserServiceProtocol = UserService()) {
@@ -47,11 +32,6 @@ final class CreateChallangeViewModel: ObservableObject {
     
     func send(action: Action) {
         switch action {
-        case .selectedOption(let index):
-            guard let selectedDropdownIndex = selectedDropdownIndex else { return }
-            clearSelectedOption()
-            dropdowns[selectedDropdownIndex].option[index].isSelected = true
-            clearSelectedDropdown()
         case .createChallenge:
             currentUserId().sink(receiveCompletion: { completion in
                 switch completion {
@@ -65,18 +45,6 @@ final class CreateChallangeViewModel: ObservableObject {
             })
             .store(in: &cancellables)
         }
-    }
-    
-    func clearSelectedOption() {
-        guard let selectedDropdownIndex = selectedDropdownIndex else { return }
-        dropdowns[selectedDropdownIndex].option.indices.forEach{ index in
-            dropdowns[selectedDropdownIndex].option[index].isSelected = false
-        }
-    }
-    
-    func clearSelectedDropdown() {
-        guard let selectedDropdownIndex = selectedDropdownIndex else { return }
-        dropdowns[selectedDropdownIndex].isSelected = false
     }
     
     // Fetch Service
@@ -106,6 +74,7 @@ final class CreateChallangeViewModel: ObservableObject {
 
 extension CreateChallangeViewModel {
     struct ChallangePartViewModel: DropdownItemProtocol {
+        var selectedOption: DropdownOption
         
         var option: [DropdownOption]
          
@@ -114,7 +83,7 @@ extension CreateChallangeViewModel {
         }
         
         var dropdownTitle: String {
-            return option.first(where: { $0.isSelected })?.formatedValue ?? ""
+            selectedOption.formatedValue
         }
         
         var isSelected: Bool = false
@@ -135,6 +104,7 @@ extension CreateChallangeViewModel {
             }
             
             self.type = type
+            self.selectedOption = option.first!
         }
         
         enum ChallangePartType: String, CaseIterable {
@@ -151,9 +121,10 @@ extension CreateChallangeViewModel {
             case situps
             
             var toDropdownOption: DropdownOption {
-                .init(type: .text(rawValue),
-                      formatedValue: rawValue.capitalized,
-                      isSelected: self == .pullups)
+                .init(
+                    type: .text(rawValue),
+                    formatedValue: rawValue.capitalized
+                )
             }
         }
         
@@ -162,9 +133,10 @@ extension CreateChallangeViewModel {
             case one = 1, two, three, four, five
                         
             var toDropdownOption: DropdownOption {
-                .init(type: .number(rawValue),
-                      formatedValue: "\(rawValue)",
-                    isSelected: self == .one)
+                .init(
+                    type: .number(rawValue),
+                    formatedValue: "\(rawValue)"
+                )
             }
         }
         
@@ -173,9 +145,10 @@ extension CreateChallangeViewModel {
             case one = 1, two, three, four, five
                         
             var toDropdownOption: DropdownOption {
-                .init(type: .number(rawValue),
-                      formatedValue: "+\(rawValue)",
-                    isSelected: self == .one)
+                .init(
+                    type: .number(rawValue),
+                    formatedValue: "+\(rawValue)"
+                )
             }
         }
         
@@ -184,9 +157,10 @@ extension CreateChallangeViewModel {
             case seven = 7, fourteen = 14, twentyOne = 21, twentyEight = 28
                         
             var toDropdownOption: DropdownOption {
-                .init(type: .number(rawValue),
-                      formatedValue: "\(rawValue) days",
-                    isSelected: self == .seven)
+                .init(
+                    type: .number(rawValue),
+                    formatedValue: "\(rawValue) days"
+                )
             }
         }
     }
@@ -197,6 +171,7 @@ protocol DropdownItemProtocol {
     var headerTitle: String { get }
     var dropdownTitle: String { get }
     var isSelected: Bool { get set }
+    var selectedOption: DropdownOption { get set }
 }
 
 struct DropdownOption {
@@ -206,7 +181,6 @@ struct DropdownOption {
     }
     let type: DropdownItemType
     let formatedValue: String
-    var isSelected: Bool
 }
 
 protocol DropdownOptionProtocol {

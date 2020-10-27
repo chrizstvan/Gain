@@ -13,20 +13,15 @@ struct CreateView: View {
     @ObservedObject var viewModel = CreateChallangeViewModel()
     
     var dropdownList: some View {
-        ForEach(viewModel.dropdowns.indices, id: \.self) { index in
-            DropdownView(viewModel: self.$viewModel.dropdowns[index])
+        VStack {
+            DropdownView(viewModel: $viewModel.exerciseDropdowns)
+            
+            DropdownView(viewModel: $viewModel.startAmountDropdowns)
+            
+            DropdownView(viewModel: $viewModel.increaseDropdowns)
+            
+            DropdownView(viewModel: $viewModel.lengthDropdowns)
         }
-    }
-    
-    var actionSheet: ActionSheet {
-        ActionSheet(title: Text("Select noh"),
-                    buttons: viewModel.displayedOption.indices.map { index in
-                        let option = viewModel.displayedOption[index]
-                        return ActionSheet.Button.default(Text(option.formatedValue)) {
-                            //selected option button index
-                            self.viewModel.send(action: .selectedOption(index: index))
-                        }
-        } )
     }
     
     var body: some View {
@@ -42,13 +37,6 @@ struct CreateView: View {
                 }
             }
             .padding(.bottom, 30)
-            .actionSheet(isPresented: Binding<Bool>(get: {
-                self.viewModel.hasSelectedDropdown
-            }, set: { _ in
-                
-            }), content: { () -> ActionSheet in
-                self.actionSheet
-            })
             .navigationBarTitle("Create")
             .navigationBarBackButtonHidden(true)
         }

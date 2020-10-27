@@ -12,6 +12,17 @@ struct DropdownView<T: DropdownItemProtocol>: View {
     
     @Binding var viewModel: T
     
+    var actionSheet: ActionSheet {
+        ActionSheet(title: Text("Select noh"),
+                    buttons: viewModel.option.map { option in
+                        return ActionSheet.Button.default(
+                            Text(option.formatedValue)) {
+                            //selected option button index
+                                self.viewModel.selectedOption = option
+                            }
+        } )
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -38,6 +49,9 @@ struct DropdownView<T: DropdownItemProtocol>: View {
             .buttonStyle(PrimaryButtonStyle(fillColor: .primaryButton))
         }
         .padding(15)
+        .actionSheet(isPresented: self.$viewModel.isSelected) {
+            self.actionSheet
+        }
     }
 }
 
