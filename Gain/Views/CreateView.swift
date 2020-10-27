@@ -49,8 +49,8 @@ struct CreateView: View {
             }), content: { () -> ActionSheet in
                 self.actionSheet
             })
-                .navigationBarTitle("Create")
-                .navigationBarBackButtonHidden(true)
+            .navigationBarTitle("Create")
+            .navigationBarBackButtonHidden(true)
         }
     }
     

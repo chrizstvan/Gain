@@ -21,6 +21,7 @@ final class CreateChallangeViewModel: ObservableObject {
     ]
     
     private let userService: UserServiceProtocol
+    private var cancellables: [AnyCancellable] = []
     
     enum Action {
         case selectedOption(index: Int)
@@ -52,7 +53,17 @@ final class CreateChallangeViewModel: ObservableObject {
             dropdowns[selectedDropdownIndex].option[index].isSelected = true
             clearSelectedDropdown()
         case .createChallenge:
-            print("create challenge")
+            currentUserId().sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                case .finished:
+                    print("completed")
+                }
+            }, receiveValue: { userId in
+                print("retrieved userId: \(userId)")
+            })
+            .store(in: &cancellables)
         }
     }
     
@@ -70,18 +81,26 @@ final class CreateChallangeViewModel: ObservableObject {
     
     // Fetch Service
     private func currentUserId() -> AnyPublisher<UserId, Error> {
-        return userService.currentUser().flatMap { user -> AnyPublisher<UserId, Error> in
-            if let usedId = user?.uid {
-                return Just(usedId)
-                    .setFailureType(to: Error.self)
-                    .eraseToAnyPublisher()
-            } else {
-                return self.userService
-                    .signInAnonymously()
-                    .map{ $0.uid }
-                    .eraseToAnyPublisher()
-            }
-        }.eraseToAnyPublisher()
+        print("getting user id")
+        return userService.currentUser()
+            .setFailureType(to: Error.self)
+            .flatMap { user -> AnyPublisher<UserId, Error> in
+                if let usedId = user?.uid {
+                    print("user is logged in...")
+                    
+                    return Just(usedId)
+                        .setFailureType(to: Error.self)
+                        .eraseToAnyPublisher()
+                } else {
+                    print("user is eing logged ini anonymously..")
+                    
+                    return self.userService
+                        .signInAnonymously()
+                        .map{ $0.uid }
+                        .eraseToAnyPublisher()
+                }
+        }
+        .eraseToAnyPublisher()
     }
 }
 
