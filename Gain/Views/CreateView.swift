@@ -24,10 +24,11 @@ struct CreateView: View {
         }
     }
     
-    var body: some View {
+    var mainConttentView: some View {
         ScrollView {
             VStack {
                 dropdownList
+                
                 Spacer()
                 
                 Button(action: {
@@ -36,10 +37,29 @@ struct CreateView: View {
                     Text("Create").font(.system(size: 24, weight: .medium))
                 }
             }
-            .padding(.bottom, 30)
-            .navigationBarTitle("Create")
-            .navigationBarBackButtonHidden(true)
         }
+    }
+    
+    var body: some View {
+        ZStack {
+            if viewModel.isLoading {
+                EmptyView()
+            } else {
+                mainConttentView
+            }
+        }
+        .alert(isPresented: Binding<Bool>.constant($viewModel.error.wrappedValue != nil)) {
+            Alert(
+                title: Text("Error"),
+                message: Text($viewModel.error.wrappedValue?.localizedDescription ?? ""),
+                dismissButton: .default(Text("OK"), action: {
+                    self.viewModel.error = nil
+                })
+            )
+        }
+        .padding(.bottom, 30)
+        .navigationBarTitle("Create")
+        .navigationBarBackButtonHidden(true)
     }
     
 }

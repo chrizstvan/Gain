@@ -10,6 +10,11 @@
 		31A73C359610EC7D84885ED7 /* Pods_Gain_GainUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23B7F8991135F63D15AA1FA /* Pods_Gain_GainUITests.framework */; };
 		510BCF50BB49A36399A8EB31 /* Pods_GainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF6DE6A5F867219B5E073358 /* Pods_GainTests.framework */; };
 		54039463B2EF22975693A523 /* Pods_Gain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80D84C3F365F28E0AE2F133 /* Pods_Gain.framework */; };
+		8B1D8BBF254902CC00F984AE /* ChallangePartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D8BBE254902CC00F984AE /* ChallangePartViewModel.swift */; };
+		8B1D8BC2254904E600F984AE /* Challange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D8BC1254904E600F984AE /* Challange.swift */; };
+		8B1D8BC4254907B000F984AE /* ChallengeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D8BC3254907B000F984AE /* ChallengeService.swift */; };
+		8B1D8BC625490BD200F984AE /* Dropdowns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D8BC525490BD200F984AE /* Dropdowns.swift */; };
+		8B1D8BC92549652A00F984AE /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D8BC82549652A00F984AE /* CustomError.swift */; };
 		8B88163824FF3925000E8C03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88163724FF3925000E8C03 /* AppDelegate.swift */; };
 		8B88163A24FF3925000E8C03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88163924FF3925000E8C03 /* SceneDelegate.swift */; };
 		8B88163C24FF3925000E8C03 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88163B24FF3925000E8C03 /* LandingView.swift */; };
@@ -49,6 +54,11 @@
 		00AF136E55201C81B414D1E5 /* Pods-Gain-GainUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gain-GainUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gain-GainUITests/Pods-Gain-GainUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		232C9EE0897A97FB91E5707D /* Pods-GainTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GainTests.debug.xcconfig"; path = "Target Support Files/Pods-GainTests/Pods-GainTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3973CE8C69F3F0A5CB50A70D /* Pods-Gain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gain.debug.xcconfig"; path = "Target Support Files/Pods-Gain/Pods-Gain.debug.xcconfig"; sourceTree = "<group>"; };
+		8B1D8BBE254902CC00F984AE /* ChallangePartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallangePartViewModel.swift; sourceTree = "<group>"; };
+		8B1D8BC1254904E600F984AE /* Challange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challange.swift; sourceTree = "<group>"; };
+		8B1D8BC3254907B000F984AE /* ChallengeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeService.swift; sourceTree = "<group>"; };
+		8B1D8BC525490BD200F984AE /* Dropdowns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dropdowns.swift; sourceTree = "<group>"; };
+		8B1D8BC82549652A00F984AE /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		8B88163424FF3925000E8C03 /* Gain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B88163724FF3925000E8C03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B88163924FF3925000E8C03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +127,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8B1D8BC0254904C100F984AE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B1D8BC1254904E600F984AE /* Challange.swift */,
+				8B1D8BC525490BD200F984AE /* Dropdowns.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8B88162B24FF3925000E8C03 = {
 			isa = PBXGroup;
 			children = (
@@ -142,12 +161,13 @@
 		8B88163624FF3925000E8C03 /* Gain */ = {
 			isa = PBXGroup;
 			children = (
+				8B88163724FF3925000E8C03 /* AppDelegate.swift */,
+				8B88163924FF3925000E8C03 /* SceneDelegate.swift */,
+				8B1D8BC0254904C100F984AE /* Models */,
 				8B88167E24FFB419000E8C03 /* Services */,
 				8B88167524FF718D000E8C03 /* ViewModels */,
 				8B88166A24FF41CB000E8C03 /* Shared */,
 				8B88166924FF41B4000E8C03 /* Views */,
-				8B88163724FF3925000E8C03 /* AppDelegate.swift */,
-				8B88163924FF3925000E8C03 /* SceneDelegate.swift */,
 				8B88163D24FF3928000E8C03 /* Assets.xcassets */,
 				8B88164224FF3928000E8C03 /* LaunchScreen.storyboard */,
 				8B88164524FF3928000E8C03 /* Info.plist */,
@@ -199,6 +219,7 @@
 				8B88166B24FF41E8000E8C03 /* PrimaryButtonStyle.swift */,
 				8B88166D24FF43F7000E8C03 /* Color+Extension.swift */,
 				8B88167124FF550D000E8C03 /* DropdownView.swift */,
+				8B1D8BC82549652A00F984AE /* CustomError.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -207,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				8B88167624FF71AF000E8C03 /* CreateChallangeViewModel.swift */,
+				8B1D8BBE254902CC00F984AE /* ChallangePartViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -215,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				8B88167F24FFB434000E8C03 /* UserService.swift */,
+				8B1D8BC3254907B000F984AE /* ChallengeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -473,6 +496,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B88167724FF71AF000E8C03 /* CreateChallangeViewModel.swift in Sources */,
+				8B1D8BC2254904E600F984AE /* Challange.swift in Sources */,
+				8B1D8BC4254907B000F984AE /* ChallengeService.swift in Sources */,
+				8B1D8BBF254902CC00F984AE /* ChallangePartViewModel.swift in Sources */,
+				8B1D8BC625490BD200F984AE /* Dropdowns.swift in Sources */,
+				8B1D8BC92549652A00F984AE /* CustomError.swift in Sources */,
 				8B88166C24FF41E8000E8C03 /* PrimaryButtonStyle.swift in Sources */,
 				8B88166E24FF43F7000E8C03 /* Color+Extension.swift in Sources */,
 				8B88163824FF3925000E8C03 /* AppDelegate.swift in Sources */,
