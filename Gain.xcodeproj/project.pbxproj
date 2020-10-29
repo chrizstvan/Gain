@@ -14,7 +14,6 @@
 		8B1D8BC2254904E600F984AE /* Challange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D8BC1254904E600F984AE /* Challange.swift */; };
 		8B1D8BC4254907B000F984AE /* ChallengeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D8BC3254907B000F984AE /* ChallengeService.swift */; };
 		8B1D8BC625490BD200F984AE /* Dropdowns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D8BC525490BD200F984AE /* Dropdowns.swift */; };
-		8B1D8BC92549652A00F984AE /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D8BC82549652A00F984AE /* CustomError.swift */; };
 		8B1D8BCC2549772600F984AE /* AuthPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D8BCB2549772600F984AE /* AuthPublisher.swift */; };
 		8B88163824FF3925000E8C03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88163724FF3925000E8C03 /* AppDelegate.swift */; };
 		8B88163A24FF3925000E8C03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88163924FF3925000E8C03 /* SceneDelegate.swift */; };
@@ -32,6 +31,7 @@
 		8B88167724FF71AF000E8C03 /* CreateChallangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88167624FF71AF000E8C03 /* CreateChallangeViewModel.swift */; };
 		8B88167D24FFA880000E8C03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B88167C24FFA880000E8C03 /* GoogleService-Info.plist */; };
 		8B88168024FFB434000E8C03 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88167F24FFB434000E8C03 /* UserService.swift */; };
+		AA8D4AC1254B390300350D0F /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D4AC0254B390300350D0F /* CustomError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,6 @@
 		8B1D8BC1254904E600F984AE /* Challange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challange.swift; sourceTree = "<group>"; };
 		8B1D8BC3254907B000F984AE /* ChallengeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeService.swift; sourceTree = "<group>"; };
 		8B1D8BC525490BD200F984AE /* Dropdowns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dropdowns.swift; sourceTree = "<group>"; };
-		8B1D8BC82549652A00F984AE /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		8B1D8BCB2549772600F984AE /* AuthPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPublisher.swift; sourceTree = "<group>"; };
 		8B88163424FF3925000E8C03 /* Gain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B88163724FF3925000E8C03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +83,7 @@
 		8B88167C24FFA880000E8C03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B88167F24FFB434000E8C03 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		9C4BA9B199017366EB04885D /* Pods-GainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GainTests.release.xcconfig"; path = "Target Support Files/Pods-GainTests/Pods-GainTests.release.xcconfig"; sourceTree = "<group>"; };
+		AA8D4AC0254B390300350D0F /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		B0BE0BD35746983CD0976966 /* Pods-Gain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gain.release.xcconfig"; path = "Target Support Files/Pods-Gain/Pods-Gain.release.xcconfig"; sourceTree = "<group>"; };
 		B23B7F8991135F63D15AA1FA /* Pods_Gain_GainUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gain_GainUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6BF5CF6F2C5765132D6CB0C /* Pods-Gain-GainUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gain-GainUITests.release.xcconfig"; path = "Target Support Files/Pods-Gain-GainUITests/Pods-Gain-GainUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 				8B88166B24FF41E8000E8C03 /* PrimaryButtonStyle.swift */,
 				8B88166D24FF43F7000E8C03 /* Color+Extension.swift */,
 				8B88167124FF550D000E8C03 /* DropdownView.swift */,
-				8B1D8BC82549652A00F984AE /* CustomError.swift */,
+				AA8D4AC0254B390300350D0F /* CustomError.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -507,11 +507,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B88167724FF71AF000E8C03 /* CreateChallangeViewModel.swift in Sources */,
+				AA8D4AC1254B390300350D0F /* CustomError.swift in Sources */,
 				8B1D8BC2254904E600F984AE /* Challange.swift in Sources */,
 				8B1D8BC4254907B000F984AE /* ChallengeService.swift in Sources */,
 				8B1D8BBF254902CC00F984AE /* ChallangePartViewModel.swift in Sources */,
 				8B1D8BC625490BD200F984AE /* Dropdowns.swift in Sources */,
-				8B1D8BC92549652A00F984AE /* CustomError.swift in Sources */,
 				8B88166C24FF41E8000E8C03 /* PrimaryButtonStyle.swift in Sources */,
 				8B88166E24FF43F7000E8C03 /* Color+Extension.swift in Sources */,
 				8B88163824FF3925000E8C03 /* AppDelegate.swift in Sources */,
@@ -618,7 +618,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -672,7 +672,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
