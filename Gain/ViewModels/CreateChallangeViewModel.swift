@@ -113,8 +113,4 @@ final class CreateChallangeViewModel: ObservableObject {
     }
 }
 
-extension CreateChallangeViewModel {
-    
-}
-
 

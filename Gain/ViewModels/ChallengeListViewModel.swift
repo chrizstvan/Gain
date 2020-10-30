@@ -14,6 +14,10 @@ final class ChallengeListViewModel: ObservableObject {
     private let challengeService: ChallengeServiceProtocol
     private var cancellables: [AnyCancellable] = []
     
+    @Published private(set) var itemViewModels: [ChallengeItemViewModel] = []
+    
+    let title = "Challenges"
+    
     init(
         userService: UserServiceProtocol = UserService(),
         challengeSerVice: ChallengeServiceProtocol = ChallengeService()
@@ -37,7 +41,9 @@ final class ChallengeListViewModel: ObservableObject {
                     print(error.localizedDescription)
                 }
             } receiveValue: { challenges in
-                print(challenges)
+                self.itemViewModels = challenges.map {
+                    .init($0)
+                }
             }
             .store(in: &cancellables)
 
