@@ -43,7 +43,7 @@ struct CreateView: View {
     var body: some View {
         ZStack {
             if viewModel.isLoading {
-                EmptyView()
+                ProgressView()
             } else {
                 mainConttentView
             }

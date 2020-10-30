@@ -31,6 +31,10 @@
 		8B88167724FF71AF000E8C03 /* CreateChallangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88167624FF71AF000E8C03 /* CreateChallangeViewModel.swift */; };
 		8B88167D24FFA880000E8C03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B88167C24FFA880000E8C03 /* GoogleService-Info.plist */; };
 		8B88168024FFB434000E8C03 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88167F24FFB434000E8C03 /* UserService.swift */; };
+		AA3DE4DA254C242800036040 /* TabContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DE4D9254C242800036040 /* TabContainerView.swift */; };
+		AA3DE4DF254C2CC900036040 /* ChallengeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DE4DE254C2CC900036040 /* ChallengeListView.swift */; };
+		AA3DE4E4254C2CE200036040 /* ChallengeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DE4E3254C2CE200036040 /* ChallengeListViewModel.swift */; };
+		AA3DE4E9254C371D00036040 /* QuerySnapshotPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DE4E8254C371D00036040 /* QuerySnapshotPublisher.swift */; };
 		AA8D4AC1254B390300350D0F /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D4AC0254B390300350D0F /* CustomError.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +87,10 @@
 		8B88167C24FFA880000E8C03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B88167F24FFB434000E8C03 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		9C4BA9B199017366EB04885D /* Pods-GainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GainTests.release.xcconfig"; path = "Target Support Files/Pods-GainTests/Pods-GainTests.release.xcconfig"; sourceTree = "<group>"; };
+		AA3DE4D9254C242800036040 /* TabContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainerView.swift; sourceTree = "<group>"; };
+		AA3DE4DE254C2CC900036040 /* ChallengeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListView.swift; sourceTree = "<group>"; };
+		AA3DE4E3254C2CE200036040 /* ChallengeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListViewModel.swift; sourceTree = "<group>"; };
+		AA3DE4E8254C371D00036040 /* QuerySnapshotPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySnapshotPublisher.swift; sourceTree = "<group>"; };
 		AA8D4AC0254B390300350D0F /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		B0BE0BD35746983CD0976966 /* Pods-Gain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gain.release.xcconfig"; path = "Target Support Files/Pods-Gain/Pods-Gain.release.xcconfig"; sourceTree = "<group>"; };
 		B23B7F8991135F63D15AA1FA /* Pods_Gain_GainUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gain_GainUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				8B1D8BCB2549772600F984AE /* AuthPublisher.swift */,
+				AA3DE4E8254C371D00036040 /* QuerySnapshotPublisher.swift */,
 			);
 			path = Publishers;
 			sourceTree = "<group>";
@@ -220,6 +229,8 @@
 				8B88163B24FF3925000E8C03 /* LandingView.swift */,
 				8B88166F24FF529E000E8C03 /* CreateView.swift */,
 				8B88167324FF5EC1000E8C03 /* RemindView.swift */,
+				AA3DE4D9254C242800036040 /* TabContainerView.swift */,
+				AA3DE4DE254C2CC900036040 /* ChallengeListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -240,6 +251,7 @@
 			children = (
 				8B88167624FF71AF000E8C03 /* CreateChallangeViewModel.swift */,
 				8B1D8BBE254902CC00F984AE /* ChallangePartViewModel.swift */,
+				AA3DE4E3254C2CE200036040 /* ChallengeListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -509,14 +521,18 @@
 				8B88167724FF71AF000E8C03 /* CreateChallangeViewModel.swift in Sources */,
 				AA8D4AC1254B390300350D0F /* CustomError.swift in Sources */,
 				8B1D8BC2254904E600F984AE /* Challange.swift in Sources */,
+				AA3DE4E4254C2CE200036040 /* ChallengeListViewModel.swift in Sources */,
 				8B1D8BC4254907B000F984AE /* ChallengeService.swift in Sources */,
 				8B1D8BBF254902CC00F984AE /* ChallangePartViewModel.swift in Sources */,
 				8B1D8BC625490BD200F984AE /* Dropdowns.swift in Sources */,
+				AA3DE4E9254C371D00036040 /* QuerySnapshotPublisher.swift in Sources */,
 				8B88166C24FF41E8000E8C03 /* PrimaryButtonStyle.swift in Sources */,
 				8B88166E24FF43F7000E8C03 /* Color+Extension.swift in Sources */,
+				AA3DE4DA254C242800036040 /* TabContainerView.swift in Sources */,
 				8B88163824FF3925000E8C03 /* AppDelegate.swift in Sources */,
 				8B88163A24FF3925000E8C03 /* SceneDelegate.swift in Sources */,
 				8B88167024FF529E000E8C03 /* CreateView.swift in Sources */,
+				AA3DE4DF254C2CC900036040 /* ChallengeListView.swift in Sources */,
 				8B88168024FFB434000E8C03 /* UserService.swift in Sources */,
 				8B88167424FF5EC1000E8C03 /* RemindView.swift in Sources */,
 				8B88167224FF550D000E8C03 /* DropdownView.swift in Sources */,

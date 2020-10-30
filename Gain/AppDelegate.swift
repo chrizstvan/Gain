@@ -18,15 +18,8 @@ struct GainApp: App {
     
     var body: some Scene {
         WindowGroup {
-            //LandingView()
             if appState.isLoggedIn {
-                TabView {
-                    Text("Log")
-                        .tabItem {
-                            Image(systemName: "book")
-                        }
-                }
-                .accentColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                TabContainerView()
             } else {
                 LandingView()
             }
@@ -65,6 +58,9 @@ class AppState: ObservableObject {
     
     init(userService: UserServiceProtocol = UserService()) {
         self.userService = userService
+        
+        // firebase sign out
+        //try? Auth.auth().signOut()
         
         userService
             .observeAuthChanges()
