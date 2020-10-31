@@ -36,6 +36,9 @@
 		AA3DE4E4254C2CE200036040 /* ChallengeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DE4E3254C2CE200036040 /* ChallengeListViewModel.swift */; };
 		AA3DE4E9254C371D00036040 /* QuerySnapshotPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DE4E8254C371D00036040 /* QuerySnapshotPublisher.swift */; };
 		AA3DE4EE254C69BD00036040 /* ChallengeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DE4ED254C69BD00036040 /* ChallengeItemViewModel.swift */; };
+		AA54698F254D3A99006D02EE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54698E254D3A99006D02EE /* SettingsView.swift */; };
+		AA546998254D3AAE006D02EE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA546997254D3AAE006D02EE /* SettingsViewModel.swift */; };
+		AA5469A0254D3BA2006D02EE /* SettingsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54699F254D3BA2006D02EE /* SettingsItemViewModel.swift */; };
 		AA8D4AC1254B390300350D0F /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D4AC0254B390300350D0F /* CustomError.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +96,9 @@
 		AA3DE4E3254C2CE200036040 /* ChallengeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListViewModel.swift; sourceTree = "<group>"; };
 		AA3DE4E8254C371D00036040 /* QuerySnapshotPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySnapshotPublisher.swift; sourceTree = "<group>"; };
 		AA3DE4ED254C69BD00036040 /* ChallengeItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItemViewModel.swift; sourceTree = "<group>"; };
+		AA54698E254D3A99006D02EE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AA546997254D3AAE006D02EE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		AA54699F254D3BA2006D02EE /* SettingsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemViewModel.swift; sourceTree = "<group>"; };
 		AA8D4AC0254B390300350D0F /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		B0BE0BD35746983CD0976966 /* Pods-Gain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gain.release.xcconfig"; path = "Target Support Files/Pods-Gain/Pods-Gain.release.xcconfig"; sourceTree = "<group>"; };
 		B23B7F8991135F63D15AA1FA /* Pods_Gain_GainUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gain_GainUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +239,7 @@
 				8B88167324FF5EC1000E8C03 /* RemindView.swift */,
 				AA3DE4D9254C242800036040 /* TabContainerView.swift */,
 				AA3DE4DE254C2CC900036040 /* ChallengeListView.swift */,
+				AA54698E254D3A99006D02EE /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -251,10 +258,8 @@
 		8B88167524FF718D000E8C03 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				8B88167624FF71AF000E8C03 /* CreateChallangeViewModel.swift */,
-				8B1D8BBE254902CC00F984AE /* ChallangePartViewModel.swift */,
-				AA3DE4E3254C2CE200036040 /* ChallengeListViewModel.swift */,
-				AA3DE4ED254C69BD00036040 /* ChallengeItemViewModel.swift */,
+				AA546996254D3AA0006D02EE /* Settings */,
+				AA54698D254D3A3F006D02EE /* Challenges */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -266,6 +271,26 @@
 				8B1D8BC3254907B000F984AE /* ChallengeService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		AA54698D254D3A3F006D02EE /* Challenges */ = {
+			isa = PBXGroup;
+			children = (
+				8B88167624FF71AF000E8C03 /* CreateChallangeViewModel.swift */,
+				8B1D8BBE254902CC00F984AE /* ChallangePartViewModel.swift */,
+				AA3DE4E3254C2CE200036040 /* ChallengeListViewModel.swift */,
+				AA3DE4ED254C69BD00036040 /* ChallengeItemViewModel.swift */,
+			);
+			path = Challenges;
+			sourceTree = "<group>";
+		};
+		AA546996254D3AA0006D02EE /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AA546997254D3AAE006D02EE /* SettingsViewModel.swift */,
+				AA54699F254D3BA2006D02EE /* SettingsItemViewModel.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		CFB6BF4E5EE4CC0CD9D9887D /* Pods */ = {
@@ -522,6 +547,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA3DE4EE254C69BD00036040 /* ChallengeItemViewModel.swift in Sources */,
+				AA546998254D3AAE006D02EE /* SettingsViewModel.swift in Sources */,
+				AA5469A0254D3BA2006D02EE /* SettingsItemViewModel.swift in Sources */,
 				8B88167724FF71AF000E8C03 /* CreateChallangeViewModel.swift in Sources */,
 				AA8D4AC1254B390300350D0F /* CustomError.swift in Sources */,
 				8B1D8BC2254904E600F984AE /* Challange.swift in Sources */,
@@ -542,6 +569,7 @@
 				8B88167224FF550D000E8C03 /* DropdownView.swift in Sources */,
 				8B1D8BCC2549772600F984AE /* AuthPublisher.swift in Sources */,
 				8B88163C24FF3925000E8C03 /* LandingView.swift in Sources */,
+				AA54698F254D3A99006D02EE /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

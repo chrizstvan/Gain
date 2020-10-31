@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ChallengeListView: View {
+    @AppStorage("isDarkMode") private var isDarkMode = false
     @StateObject private var viewModel = ChallengeListViewModel()
     
     var body: some View {
@@ -60,6 +61,7 @@ struct ChallengeListView: View {
             NavigationView {
                 CreateView()
             }
+            .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
 }
