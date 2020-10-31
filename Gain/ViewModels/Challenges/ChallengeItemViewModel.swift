@@ -17,7 +17,7 @@ struct ChallengeItemViewModel: Hashable {
     
     var daysFromStart: Int {
         guard let daysFromStart = Calendar.current.dateComponents(
-                [.day],
+            [.day],
                 from: challenge.startDate,
                 to: Date()
         ).day else {

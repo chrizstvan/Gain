@@ -10,7 +10,44 @@ import SwiftUI
 
 struct LandingView: View {
     
-    @State private var isActive = false
+    @StateObject var viewModel = LandingViewModel()
+    
+    var title: some View {
+        Text(viewModel.title)
+            .font(.system(size: 44, weight: .medium))
+            .foregroundColor(.white)
+    }
+    
+    var createButton: some View {
+        Button(action: {
+            self.viewModel.createPushed = true
+        }) {
+            HStack(spacing: 15) {
+                Spacer()
+                Image(systemName: viewModel.createButtonImageName)
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundColor(.white)
+                Text(viewModel.createButtonTitle)
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundColor(.white)
+                Spacer()
+            }
+        }
+    }
+      
+    var alreadyButton: some View {
+        Button(viewModel.alreadyButtonTitle) {
+            self.viewModel.loginSignUpPushed = true
+        }
+        .foregroundColor(.white)
+    }
+    
+    var backgroundImage: some View {
+        Image(viewModel.backgroundImageName)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .overlay(Color.black.opacity(0.4))
+    }
     
     var body: some View {
         NavigationView {
@@ -19,43 +56,36 @@ struct LandingView: View {
                     Spacer()
                         .frame(height: proxy.size.height * 0.18)
                     
-                    Text("No Pain, No Gain")
-                        .font(.system(size: 44, weight: .medium))
-                        .foregroundColor(.white)
+                    title
                     
                     Spacer()
                     
                     //Navigation Action here
-                    NavigationLink(destination: CreateView(), isActive: self.$isActive) {
-                        Button(action: {
-                            self.isActive = true
-                        }) {
-                            HStack(spacing: 15) {
-                                Spacer()
-                                Image(systemName: "plus.circle")
-                                    .font(.system(size: 24, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Text("Create a Challenge")
-                                    .font(.system(size: 24, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-                        }
+                    NavigationLink(destination: CreateView(), isActive: self.$viewModel.createPushed) {}
+                    
+                    createButton
                         .padding(.horizontal, 25)
                         .buttonStyle(PrimaryButtonStyle())
-                    }
+                    
+                    NavigationLink(
+                        destination: LoginSignUpView(viewModel: .init(mode: .login)),
+                        isActive: self.$viewModel.loginSignUpPushed,
+                        label: {
+                            //empty
+                        })
+                    
+                    alreadyButton
+                        .padding(10)
                     
                     Spacer().frame(height: proxy.size.height * 0.05)
                     
-                }.frame(
+                }
+                .frame(
                     maxWidth: .infinity,
                     maxHeight: .infinity
                 )
                 .background(
-                    Image("pullup")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .overlay(Color.black.opacity(0.4))
+                    backgroundImage
                         .frame(width: proxy.size.width)
                         
                 )
