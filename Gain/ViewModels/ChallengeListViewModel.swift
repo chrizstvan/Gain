@@ -15,8 +15,16 @@ final class ChallengeListViewModel: ObservableObject {
     private var cancellables: [AnyCancellable] = []
     
     @Published private(set) var itemViewModels: [ChallengeItemViewModel] = []
+    @Published private(set) var error: CustomError?
+    @Published private(set) var isLoading = false
+    
+    @Published var showingCreateModal = false
     
     let title = "Challenges"
+    
+    enum Action {
+        case retry, create
+    }
     
     init(
         userService: UserServiceProtocol = UserService(),
@@ -27,20 +35,44 @@ final class ChallengeListViewModel: ObservableObject {
         observeChallanges()
     }
     
+    func send(action: Action) {
+        switch action {
+        
+        case .retry:
+            observeChallanges()
+        case .create:
+            showingCreateModal = true
+        }
+    }
+    
     private func observeChallanges() {
+        isLoading = true
         userService.currentUser()
             .compactMap { $0?.uid }
-            .flatMap { userId -> AnyPublisher<[Challange], CustomError> in
+            .flatMap { [weak self] userId -> AnyPublisher<[Challange], CustomError> in
+                guard let self = self else {
+                    return Fail(error: .default()).eraseToAnyPublisher()
+                    
+                }
+                
                 return self.challengeService.observeChallanges(userId: userId)
             }
-            .sink { completion in
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                self.isLoading = false
+                
                 switch completion {
                 case .finished:
                     print("challenge fetch finished")
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    self.error = error
                 }
-            } receiveValue: { challenges in
+            } receiveValue: { [weak self] challenges in
+                guard let self = self else { return }
+                self.isLoading = false
+                self.error = nil
+                self.showingCreateModal = false
+                
                 self.itemViewModels = challenges.map {
                     .init($0)
                 }

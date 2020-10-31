@@ -34,7 +34,9 @@ struct CreateView: View {
                 Button(action: {
                     self.viewModel.send(action: .createChallenge)
                 }) {
-                    Text("Create").font(.system(size: 24, weight: .medium))
+                    Text("Create")
+                        .font(.system(size: 24, weight: .medium))
+                        .foregroundColor(.primary)
                 }
             }
         }

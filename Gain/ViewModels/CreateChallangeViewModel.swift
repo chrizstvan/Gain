@@ -101,7 +101,7 @@ final class CreateChallangeViewModel: ObservableObject {
                         .setFailureType(to: CustomError.self)
                         .eraseToAnyPublisher()
                 } else {
-                    print("user is eing logged ini anonymously..")
+                    print("user is eing logged in anonymously..")
 
                     return self.userService
                         .signInAnonymously()

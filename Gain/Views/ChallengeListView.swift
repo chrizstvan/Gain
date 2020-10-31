@@ -12,17 +12,55 @@ struct ChallengeListView: View {
     @StateObject private var viewModel = ChallengeListViewModel()
     
     var body: some View {
+        ZStack {
+            if viewModel.isLoading {
+                ProgressView()
+            } else if let error = viewModel.error {
+                VStack {
+                    Text(error.localizedDescription)
+                    Button("Retry") {
+                        viewModel.send(action: .retry)
+                    }
+                    .padding(10)
+                    .background(
+                        Rectangle()
+                            .fill(Color.red)
+                            .cornerRadius(5)
+                    )
+                }
+            } else {
+                mainContentView
+            }
+        }
+    }
+    
+    var mainContentView: some View {
         ScrollView {
             VStack {
-                LazyVGrid(columns: [.init(.flexible()), .init(.flexible())]) {
+                LazyVGrid(
+                    columns: [.init(.flexible(), spacing: 20), .init(.flexible())],
+                    spacing: 20
+                ) {
                     ForEach(viewModel.itemViewModels, id: \.self) { viewModel in
                         ChallengeItemView(viewModel: viewModel)
                     }
                 }
                 Spacer()
             }
+            .padding(10)
         }
+        .navigationBarItems(trailing: Button {
+            viewModel.send(action: .create)
+        } label: {
+            Image(systemName: "plus.circle")
+                .imageScale(.large)
+        })
         .navigationTitle(viewModel.title)
+        .sheet(isPresented: $viewModel.showingCreateModal) {
+            NavigationView {
+                CreateView()
+            }
+        }
     }
 }
 
@@ -33,28 +71,50 @@ struct ChallengeItemView: View {
         self.viewModel = viewModel
     }
     
+    // titleRow handle horizontal layout of title
+    var titleRow: some View {
+        HStack {
+            Text(viewModel.title)
+                .font(.system(size: 24, weight: .bold))
+            
+            Spacer()
+            
+            Image(systemName: "trash")
+        }
+    }
+    
+    // dailyIncreaseRow handle horizontal layout of daily increase
+    var dailyIncreaseRow: some View {
+        HStack {
+            Text(viewModel.dailyIncreaseText)
+                .font(.system(size: 24, weight: .bold))
+            
+            Spacer()
+        }
+    }
+    
     var body: some View {
         HStack {
             Spacer()
             
             VStack {
-                Text(viewModel.title)
-                    .font(.system(size: 24, weight: .bold))
+                titleRow
                 
                 Text(viewModel.statusText)
+                    .font(.system(size: 12, weight: .bold))
+                    .padding(25)
                 
-                Text(viewModel.dailyIncreaseText)
+                dailyIncreaseRow
             }
-            .padding()
+            .padding(.vertical, 10)
             
             Spacer()
         }
         .background(
             Rectangle()
-                .fill(Color.darkPrimaryButton)
+                .fill(Color.primaryButton)
                 .cornerRadius(5.0)
         )
-        .padding()
     }
 }
 
