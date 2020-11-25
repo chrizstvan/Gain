@@ -74,11 +74,24 @@ final class ChallengeListViewModel: ObservableObject {
                 self.showingCreateModal = false
                 
                 self.itemViewModels = challenges.map {
-                    .init($0)
+                    .init($0) {[weak self] id in
+                        self?.deleteChallenge(id)
+                    }
                 }
             }
             .store(in: &cancellables)
-
+    }
+    
+    private func deleteChallenge(_ challengeId: String) {
+        challengeService.delete(challengeId).sink { completion in
+            switch completion {
+            case .finished:
+                break
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        } receiveValue: { _ in }
+        .store(in: &cancellables)
     }
 }
 

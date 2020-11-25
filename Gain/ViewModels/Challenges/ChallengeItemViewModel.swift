@@ -8,8 +8,12 @@
 
 import Foundation
 
-struct ChallengeItemViewModel: Hashable {
+struct ChallengeItemViewModel: Identifiable {
     private let challenge: Challange
+    
+    var id: String {
+        challenge.id!
+    }
     
     var title: String {
         challenge.exercise.capitalized
@@ -55,7 +59,16 @@ struct ChallengeItemViewModel: Hashable {
         "+\(challenge.increase) daily"
     }
     
-    init(_ challenge: Challange) {
+    private let onDelete: (String) -> Void
+    
+    init(_ challenge: Challange, onDelete: @escaping (String) -> Void) {
         self.challenge = challenge
+        self.onDelete = onDelete
+    }
+    
+    func tappedDelete() {
+        if let id = challenge.id {
+            onDelete(id)
+        }
     }
 }

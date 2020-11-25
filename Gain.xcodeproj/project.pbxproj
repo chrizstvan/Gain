@@ -33,6 +33,7 @@
 		8B88168024FFB434000E8C03 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88167F24FFB434000E8C03 /* UserService.swift */; };
 		AA32F3A4256E982700C4650E /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA32F3A3256E982700C4650E /* ProgressCircleView.swift */; };
 		AA32F3AA256E9AB400C4650E /* ProgressCircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA32F3A9256E9AB400C4650E /* ProgressCircleViewModel.swift */; };
+		AA32F3B2256EA49F00C4650E /* ChallengeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA32F3B1256EA49F00C4650E /* ChallengeItemView.swift */; };
 		AA3DE4DA254C242800036040 /* TabContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DE4D9254C242800036040 /* TabContainerView.swift */; };
 		AA3DE4DF254C2CC900036040 /* ChallengeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DE4DE254C2CC900036040 /* ChallengeListView.swift */; };
 		AA3DE4E4254C2CE200036040 /* ChallengeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DE4E3254C2CE200036040 /* ChallengeListViewModel.swift */; };
@@ -99,6 +100,7 @@
 		9C4BA9B199017366EB04885D /* Pods-GainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GainTests.release.xcconfig"; path = "Target Support Files/Pods-GainTests/Pods-GainTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA32F3A3256E982700C4650E /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
 		AA32F3A9256E9AB400C4650E /* ProgressCircleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleViewModel.swift; sourceTree = "<group>"; };
+		AA32F3B1256EA49F00C4650E /* ChallengeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItemView.swift; sourceTree = "<group>"; };
 		AA3DE4D9254C242800036040 /* TabContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainerView.swift; sourceTree = "<group>"; };
 		AA3DE4DE254C2CC900036040 /* ChallengeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListView.swift; sourceTree = "<group>"; };
 		AA3DE4E3254C2CE200036040 /* ChallengeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListViewModel.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				8B88167324FF5EC1000E8C03 /* RemindView.swift */,
 				AA3DE4D9254C242800036040 /* TabContainerView.swift */,
 				AA3DE4DE254C2CC900036040 /* ChallengeListView.swift */,
+				AA32F3B1256EA49F00C4650E /* ChallengeItemView.swift */,
 				AA54698E254D3A99006D02EE /* SettingsView.swift */,
 				AA5469AD254D9222006D02EE /* LoginSignUpView.swift */,
 				AA32F3A3256E982700C4650E /* ProgressCircleView.swift */,
@@ -595,6 +598,7 @@
 				8B88167724FF71AF000E8C03 /* CreateChallangeViewModel.swift in Sources */,
 				AA8D4AC1254B390300350D0F /* CustomError.swift in Sources */,
 				AA32F3A4256E982700C4650E /* ProgressCircleView.swift in Sources */,
+				AA32F3B2256EA49F00C4650E /* ChallengeItemView.swift in Sources */,
 				8B1D8BC2254904E600F984AE /* Challange.swift in Sources */,
 				AA3DE4E4254C2CE200036040 /* ChallengeListViewModel.swift in Sources */,
 				8B1D8BC4254907B000F984AE /* ChallengeService.swift in Sources */,
