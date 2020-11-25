@@ -68,7 +68,12 @@ struct LandingView: View {
                         .buttonStyle(PrimaryButtonStyle())
                     
                     NavigationLink(
-                        destination: LoginSignUpView(viewModel: .init(mode: .login)),
+                        destination: LoginSignUpView(
+                            viewModel: .init(
+                                mode: .login,
+                                isPushed: $viewModel.loginSignUpPushed
+                            )
+                        ),
                         isActive: self.$viewModel.loginSignUpPushed,
                         label: {
                             //empty

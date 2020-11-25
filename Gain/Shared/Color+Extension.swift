@@ -13,4 +13,6 @@ extension Color {
                                          green: 157/255, blue: 194/225,
                                          opacity: 0.3)
     static let primaryButton = Color("PrimaryButton")
+    static let circleOutline = Color("circleOutline")
+    static let circleTrack = Color("circleTrack")
 }

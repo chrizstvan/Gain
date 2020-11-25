@@ -47,7 +47,7 @@ final class ChallengeListViewModel: ObservableObject {
     
     private func observeChallanges() {
         isLoading = true
-        userService.currentUser()
+        userService.currentUserPublisher()
             .compactMap { $0?.uid }
             .flatMap { [weak self] userId -> AnyPublisher<[Challange], CustomError> in
                 guard let self = self else {

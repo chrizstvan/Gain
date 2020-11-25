@@ -12,7 +12,6 @@ struct TextFieldCustomRoundedStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.system(size: 16, weight: .medium))
-            .foregroundColor(Color(.systemGray4))
             .padding()
             .cornerRadius(16)
             .overlay(

@@ -31,6 +31,8 @@
 		8B88167724FF71AF000E8C03 /* CreateChallangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88167624FF71AF000E8C03 /* CreateChallangeViewModel.swift */; };
 		8B88167D24FFA880000E8C03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B88167C24FFA880000E8C03 /* GoogleService-Info.plist */; };
 		8B88168024FFB434000E8C03 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88167F24FFB434000E8C03 /* UserService.swift */; };
+		AA32F3A4256E982700C4650E /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA32F3A3256E982700C4650E /* ProgressCircleView.swift */; };
+		AA32F3AA256E9AB400C4650E /* ProgressCircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA32F3A9256E9AB400C4650E /* ProgressCircleViewModel.swift */; };
 		AA3DE4DA254C242800036040 /* TabContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DE4D9254C242800036040 /* TabContainerView.swift */; };
 		AA3DE4DF254C2CC900036040 /* ChallengeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DE4DE254C2CC900036040 /* ChallengeListView.swift */; };
 		AA3DE4E4254C2CE200036040 /* ChallengeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3DE4E3254C2CE200036040 /* ChallengeListViewModel.swift */; };
@@ -95,6 +97,8 @@
 		8B88167C24FFA880000E8C03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B88167F24FFB434000E8C03 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		9C4BA9B199017366EB04885D /* Pods-GainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GainTests.release.xcconfig"; path = "Target Support Files/Pods-GainTests/Pods-GainTests.release.xcconfig"; sourceTree = "<group>"; };
+		AA32F3A3256E982700C4650E /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
+		AA32F3A9256E9AB400C4650E /* ProgressCircleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleViewModel.swift; sourceTree = "<group>"; };
 		AA3DE4D9254C242800036040 /* TabContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainerView.swift; sourceTree = "<group>"; };
 		AA3DE4DE254C2CC900036040 /* ChallengeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListView.swift; sourceTree = "<group>"; };
 		AA3DE4E3254C2CE200036040 /* ChallengeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListViewModel.swift; sourceTree = "<group>"; };
@@ -250,6 +254,7 @@
 				AA3DE4DE254C2CC900036040 /* ChallengeListView.swift */,
 				AA54698E254D3A99006D02EE /* SettingsView.swift */,
 				AA5469AD254D9222006D02EE /* LoginSignUpView.swift */,
+				AA32F3A3256E982700C4650E /* ProgressCircleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 		8B88167524FF718D000E8C03 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				AA32F3A8256E9A9900C4650E /* CircleProgressBar */,
 				AA5469A4254D8CB2006D02EE /* Landing */,
 				AA546996254D3AA0006D02EE /* Settings */,
 				AA54698D254D3A3F006D02EE /* Challenges */,
@@ -282,6 +288,14 @@
 				8B1D8BC3254907B000F984AE /* ChallengeService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		AA32F3A8256E9A9900C4650E /* CircleProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				AA32F3A9256E9AB400C4650E /* ProgressCircleViewModel.swift */,
+			);
+			path = CircleProgressBar;
 			sourceTree = "<group>";
 		};
 		AA54698D254D3A3F006D02EE /* Challenges */ = {
@@ -580,6 +594,7 @@
 				AA5469A0254D3BA2006D02EE /* SettingsItemViewModel.swift in Sources */,
 				8B88167724FF71AF000E8C03 /* CreateChallangeViewModel.swift in Sources */,
 				AA8D4AC1254B390300350D0F /* CustomError.swift in Sources */,
+				AA32F3A4256E982700C4650E /* ProgressCircleView.swift in Sources */,
 				8B1D8BC2254904E600F984AE /* Challange.swift in Sources */,
 				AA3DE4E4254C2CE200036040 /* ChallengeListViewModel.swift in Sources */,
 				8B1D8BC4254907B000F984AE /* ChallengeService.swift in Sources */,
@@ -590,6 +605,7 @@
 				AA5469B9254DC09B006D02EE /* TextFieldRoundedStyle.swift in Sources */,
 				8B88166C24FF41E8000E8C03 /* PrimaryButtonStyle.swift in Sources */,
 				8B88166E24FF43F7000E8C03 /* Color+Extension.swift in Sources */,
+				AA32F3AA256E9AB400C4650E /* ProgressCircleViewModel.swift in Sources */,
 				AA3DE4DA254C242800036040 /* TabContainerView.swift in Sources */,
 				8B88163824FF3925000E8C03 /* AppDelegate.swift in Sources */,
 				8B88163A24FF3925000E8C03 /* SceneDelegate.swift in Sources */,
@@ -771,6 +787,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Gain/Preview Content\"";
 				DEVELOPMENT_TEAM = 49LT2MNGBG;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = Gain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

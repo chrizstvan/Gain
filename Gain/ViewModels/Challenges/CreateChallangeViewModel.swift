@@ -91,7 +91,7 @@ final class CreateChallangeViewModel: ObservableObject {
     private func currentUserId() -> AnyPublisher<UserId, CustomError> {
         print("getting user id")
 
-        return userService.currentUser()
+        return userService.currentUserPublisher()
             .setFailureType(to: CustomError.self)
             .flatMap { user -> AnyPublisher<UserId, CustomError> in
                 if let usedId = user?.uid {
